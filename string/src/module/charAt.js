@@ -5,7 +5,7 @@ Reverse String:
 
 fn('abcdefg') -> 'gfedcba'
 ******************************************************************* */
-function charAt(n, s){
+function charAt(s, n){
 	if (n < 0 || n >= s.length) return null;
 	return s[n];
 }
