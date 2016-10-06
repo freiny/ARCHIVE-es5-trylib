@@ -1,7 +1,7 @@
 "use strict";
 // ****************************************************************
 var String = function(){
-	this.reverse = require('./reverse');
+	this.charAt = require('./charAt');
 };
 // ****************************************************************
 module.exports = new String();

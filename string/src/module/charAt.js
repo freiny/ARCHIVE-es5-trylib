@@ -5,13 +5,10 @@ Reverse String:
 
 fn('abcdefg') -> 'gfedcba'
 ******************************************************************* */
-function reverse(s){
-	var ret = '';
-	for (var i=s.length-1; i>-1; i--) {
-		ret += s[i];
-	}
-	return ret;
+function charAt(n, s){
+	if (n < 0 || n >= s.length) return null;
+	return s[n];
 }
 
 // ****************************************************************
-module.exports = reverse;
+module.exports = charAt;
