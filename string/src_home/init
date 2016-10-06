@@ -1,0 +1,47 @@
+#!/bin/sh
+
+project=/src/module
+cd /src
+npm install
+
+# TEST ##########################
+for each in $project/*.test.js; do
+	# erlc -P some_module.erl # VIEW PREPROCESSOR
+	# node $each
+	node -e "
+		var Mocha = require('mocha');
+		var mocha = new Mocha({ui: 'bdd', reporter: 'spec'});
+		mocha.addFile('$each');
+		mocha.run();
+	"
+done
+# npm test
+# TEST ##########################
+
+echo "************************************"
+npm start &
+# ps -ef
+
+while inotifywait -e modify /src --recursive --exclude "npm-debug.log"; do
+	killall -9 node
+
+	# TEST ##########################
+	for each in $project/*.test.js; do
+		# erlc -P some_module.erl # VIEW PREPROCESSOR
+		node -e "
+			var Mocha = require('mocha');
+			var mocha = new Mocha({ui: 'bdd', reporter: 'spec'});
+			mocha.addFile('$each');
+			mocha.run();
+		"
+
+
+		# node $each
+	done
+	# npm test
+	# TEST ##########################
+
+	echo "************************************"
+	npm start &
+	# ps ef
+done
