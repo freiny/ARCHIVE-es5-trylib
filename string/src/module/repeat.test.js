@@ -3,7 +3,7 @@ var assert = require('assert');
 var f = require('./repeat.js');
 describe('************************************************\n', function() {
 
-describe('repeat', function() {
+describe('repeat \n', function() {
 	it('should return a string', function() {
 		assert.equal('string', typeof f('ab', 3));
   });

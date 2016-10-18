@@ -2,6 +2,12 @@
 // ****************************************************************
 // STRING MODULE
 // ****************************************************************
-const m = require('./module');
-console.log(m.charAt(3, 'abcde'));
-// OUTPUT: edcba
+const String = require('./module');
+
+var s1 = 'abcde';
+console.log(String.charAt(s1, 3));
+// OUTPUT: d
+
+var s2 = 'ABC-';
+console.log(String.repeat(s2, 3));
+// OUTPUT: ABC-ABC-ABC-

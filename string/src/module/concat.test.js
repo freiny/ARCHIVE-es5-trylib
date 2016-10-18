@@ -3,7 +3,7 @@ var assert = require('assert');
 var f = require('./concat.js');
 describe('************************************************\n', function() {
 
-describe('concat', function() {
+describe('concat \n', function() {
 	it('should return a string', function() {
 		assert.equal('string', typeof f('abc', 'def'));
   });

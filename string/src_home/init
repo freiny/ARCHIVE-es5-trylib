@@ -10,7 +10,7 @@ for each in $project/*.test.js; do
 	# node $each
 	node -e "
 		var Mocha = require('mocha');
-		var mocha = new Mocha({ui: 'bdd', reporter: 'spec'});
+		var mocha = new Mocha({ui: 'bdd', reporter: 'min'});
 		mocha.addFile('$each');
 		mocha.run();
 	"
@@ -30,7 +30,7 @@ while inotifywait -e modify /src --recursive --exclude "npm-debug.log"; do
 		# erlc -P some_module.erl # VIEW PREPROCESSOR
 		node -e "
 			var Mocha = require('mocha');
-			var mocha = new Mocha({ui: 'bdd', reporter: 'spec'});
+			var mocha = new Mocha({ui: 'bdd', reporter: 'min'});
 			mocha.addFile('$each');
 			mocha.run();
 		"
